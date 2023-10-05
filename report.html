@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        h1 {
+            color: chocolate;
+            align-content: center;
+            text-align: center;
+        }
+        
+        h4 {
+            color: brown;
+            font-size: larger;
+        }
+        
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            padding: 2%;
+        }
+        
+        div {
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+            background-color: antiquewhite;
+            padding: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Build a network with Packet Tracer</h1>
+        <h4>Scope:</h4>
+        <ul>
+
+            <li>Configure internal network (router, end devices)</li>
+            <li>Configure external network connections</li>
+            <li>Configure server to enable DNS/DHCP services</li>
+        </ul>
+        <h4>Devices</h4>
+        <img src="./Ảnh chụp màn hình 2023-10-05 015242.png" alt="Các thiết bị">
+        <li>PC</li>
+        <li>Laptop</li>
+        <li>Wireless Router</li>
+        <li>Cable Modem</li>
+        <li>Cloud</li>
+        <li>Server</li>
+
+        <h4>Internal network configurations</h4>
+        <b>1. Enable DHCP on router</b><br>
+        <img src="./enableDHCProuter.png" alt="">
+        <p>You have to enable DHCP on router to auto-assign the IP address to your internal devices, or else you have to assign it manually</p>
+        <br>
+        <b>2. Connect PC and Laptop to router</b><br>
+        <img src="./internalconnect.png" alt="">
+        <p>- For PC: use copper straight-through cable to connect to router using ethernet</p>
+        <p>- For Laptop: you can do the same as you did with the PC, or you can replace the ethernet interface with a wireless interface for Wifi</p>
+        <b>3. Check for connections</b><br>
+        <img src="./pinginternal.png" alt="">
+        <p>- Use ping command to check for connections, I am pinging PC with my Laptop</p>
+        <img src="./ipconfig.png" alt="">
+        <p>- Use ipconfig to check the IP address, or see it in the "Config" tab</p>
+        <hr>
+
+        <h4>External network configurations</h4>
+        <b>1. Connect through cable modem</b><br>
+        <img src="./cablemodem.png" alt="">
+        <p>Because we use cable modem to connect to the ISP/CSP:</p>
+        <p>- Connect modem to router using straight-through cable.</p>
+        <p>- Connect the modem to the ISP using coaxial cable</p>
+        <br>
+        <b>2. Connect the server to the ISP/CSP</b><br>
+        <p>- Connect server and ISP/CSP using ethernet connection (straight-through cable) by default</p>
+        <img src="./enablecable.png" alt="">
+        <p>Since we connect the server to the ISP/CSP using ethernet, we need to configure the "Ethernet6" tab in Cloud to "Cable"</p>
+        <img src="./coaxtoether.png" alt="">
+        <p>We have to add a cable of port Coaxial(from ISP/CSP) to Ethernet6(server) to successfully connect to the server</p>
+        <hr>
+
+        <h4>Configure services in the server</h4>
+        <b>1. Configure settings and interface of the server</b><br>
+        <img src="./configset.png" alt="">
+        <p>- Set to static</p>
+        <p>- The default gateway is the server IP address(public) because there is no internal network, it connects directly to the external network</p>
+        <p>- The "DNS server" is the server IP address because the server will provide the service</p>
+
+        <b>2. Create a DNS record</b><br>
+        <img src="./configdns.png" alt="">
+        <p>- Turn on DNS service</p>
+        <p>- The Address will be the IP address(public) of the server.</p>
+        <p>- Set any domain name you want</p>
+        <img src="./addrecord.png" alt="">
+        <p>- Add the record so it can be accessed </p>
+
+        <b>3. Configure DHCP service</b><br>
+        <img src="./configdhcp.png" alt="">
+        <p>- Turn on DHCP service</p>
+        <p>- Configure the DHCP service</p>
+        <p>- Then add the DHCP service for it to work</p>
+
+        <b>*Note: </b>
+        <ul>
+            <li>You have to change the settings of the Router to use the DHCP and the DNS service of the server</li>
+            <li>You can test the connection by pinging the server</li>
+            <li>You can test the DNS record by type the domain name in the browser</li>
+        </ul>
+    </div>
+
+
+
+</body>
+
+</html>
